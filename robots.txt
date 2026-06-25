@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://baar-software.github.io/sitemap.xml

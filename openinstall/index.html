@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#f7f2e8" />
+    <meta
+      name="description"
+      content="OpenInstall is a secure Windows app installer and mini app store for signed .oip packages."
+    />
+    <meta property="og:title" content="OpenInstall" />
+    <meta
+      property="og:description"
+      content="A verify-then-consent Windows installer for signed .oip packages."
+    />
+    <meta property="og:type" content="website" />
+    <title>OpenInstall - Baar-Verlag Software Team</title>
+    <link rel="icon" href="../assets/baar-icon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../" aria-label="Baar-Verlag Software Team home">
+        <img src="../assets/baar-icon.png" alt="" />
+        <span class="wordmark">baar</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="../">Team</a>
+        <a href="#model">Model</a>
+        <a href="#links">Links</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="https://github.com/baar-Software/OpenInstall">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero product-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">OpenInstall</p>
+          <h1>Install Windows apps through verified packages, not mystery setup files.</h1>
+          <p>
+            OpenInstall is an open source Windows package manager and mini app
+            store for signed `.oip` app packages. It resolves packages, verifies
+            publisher signatures and file hashes, checks policy, asks for
+            consent, and then installs files per-user.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-button" href="https://github.com/baar-Software/OpenInstall">Source code</a>
+            <a class="ghost-button" href="https://github.com/baar-Software/OpenInstall/blob/main/DOWNLOAD.md">Downloads</a>
+          </div>
+        </div>
+
+        <div class="install-panel">
+          <div class="check-line ok">
+            <span>Package</span>
+            <strong>Manifest and hashes verified</strong>
+          </div>
+          <div class="check-line ok">
+            <span>Publisher</span>
+            <strong>Signature checked</strong>
+          </div>
+          <div class="check-line ok">
+            <span>Install mode</span>
+            <strong>Per-user, no admin rights</strong>
+          </div>
+          <div class="terminal-card">
+            <code>openinstall://install/com.example.app</code>
+          </div>
+        </div>
+      </section>
+
+      <section id="model" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Security model</p>
+          <h2>Verify first. Ask clearly. Install only what was checked.</h2>
+        </div>
+        <div class="product-grid">
+          <article class="product-card">
+            <h3>No arbitrary setup launch</h3>
+            <p>
+              Native `.oip` packages install verified files directly instead of
+              downloading and running random `setup.exe` installers.
+            </p>
+          </article>
+          <article class="product-card">
+            <h3>Signed package metadata</h3>
+            <p>
+              Publisher keys, package signatures, per-file hashes, and
+              policy checks form the install gate.
+            </p>
+          </article>
+          <article class="product-card">
+            <h3>User-controlled consent</h3>
+            <p>
+              Resolving a link is side-effect-free. Installation requires an
+              explicit user action after verification.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="links" class="section split">
+        <div class="section-heading">
+          <p class="eyebrow">Project links</p>
+          <h2>Open source, documented, and pre-1.0.</h2>
+        </div>
+        <div class="link-list">
+          <a href="https://github.com/baar-Software/OpenInstall">Repository</a>
+          <a href="https://github.com/baar-Software/OpenInstall/blob/main/SECURITY.md">Security policy</a>
+          <a href="https://github.com/baar-Software/OpenInstall/blob/main/docs/oip-format.md">Package format</a>
+          <a href="https://github.com/baar-Software/OpenInstall/blob/main/docs/code-signing.md">Code signing status</a>
+          <a href="https://github.com/baar-Software/OpenInstall/actions">CI status</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span class="wordmark">baar</span>
+      <span>OpenInstall by Baar-Verlag Software Team</span>
+      <a href="../">Team homepage</a>
+      <a href="../privacy.html">Privacy</a>
+    </footer>
+  </body>
+</html>
