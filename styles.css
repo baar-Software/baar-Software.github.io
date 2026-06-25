@@ -1,27 +1,27 @@
 :root {
-  --paper: #f7f2e8;
-  --paper-deep: #eee2cf;
-  --panel: rgba(249, 244, 235, 0.94);
-  --panel-strong: rgba(239, 228, 211, 0.96);
-  --line: rgba(95, 75, 50, 0.13);
-  --text: #5f4b32;
-  --text-strong: #3e2723;
-  --muted: #86715d;
+  --paper: #f8f4ec;
+  --paper-deep: #eee5d7;
+  --panel: rgba(255, 252, 246, 0.9);
+  --panel-strong: rgba(245, 237, 225, 0.96);
+  --line: rgba(56, 41, 31, 0.13);
+  --text: #59483d;
+  --text-strong: #281c19;
+  --muted: #78685d;
   --accent: #cc0737;
   --accent-dark: #8d1534;
   --reader-bg: #141516;
   --reader-surface: #111213;
   --reader-page: #f4efe5;
-  --shadow: 0 24px 70px rgba(66, 46, 31, 0.14);
-  --shadow-soft: 0 12px 34px rgba(66, 46, 31, 0.1);
-  --radius-lg: 28px;
-  --radius-md: 18px;
-  --radius-sm: 12px;
+  --shadow: 0 22px 50px rgba(54, 37, 24, 0.1);
+  --shadow-soft: 0 10px 26px rgba(54, 37, 24, 0.08);
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
   color: var(--text);
   background:
-    radial-gradient(circle at top left, rgba(214, 190, 164, 0.34), transparent 26%),
-    linear-gradient(180deg, #faf7f0 0%, #f3ebde 100%);
+    linear-gradient(135deg, rgba(204, 7, 55, 0.035), transparent 28%),
+    linear-gradient(180deg, #fbf8f2 0%, #f4ebdd 100%);
   font-family: "Segoe UI", "Helvetica Neue", system-ui, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -43,8 +43,9 @@ body {
   margin: 0;
   color: var(--text);
   background:
-    radial-gradient(circle at top left, rgba(214, 190, 164, 0.34), transparent 26%),
-    linear-gradient(180deg, #faf7f0 0%, #f3ebde 100%);
+    linear-gradient(135deg, rgba(204, 7, 55, 0.035), transparent 28%),
+    linear-gradient(180deg, #fbf8f2 0%, #f4ebdd 100%);
+  overflow-x: hidden;
 }
 
 body::before {
@@ -53,10 +54,10 @@ body::before {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(rgba(95, 75, 50, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(95, 75, 50, 0.028) 1px, transparent 1px);
-  background-size: 42px 42px;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent 70%);
+    linear-gradient(rgba(56, 41, 31, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 41, 31, 0.018) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), transparent 62%);
 }
 
 a {
@@ -76,7 +77,7 @@ a {
 }
 
 .site-header {
-  min-height: 82px;
+  min-height: 76px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -92,10 +93,10 @@ a {
 }
 
 .brand img {
-  width: 36px;
-  height: 36px;
-  border-radius: 11px;
-  box-shadow: var(--shadow-soft);
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  box-shadow: 0 8px 18px rgba(204, 7, 55, 0.13);
 }
 
 .wordmark {
@@ -106,7 +107,7 @@ a {
 }
 
 .brand .wordmark {
-  font-size: 2.1rem;
+  font-size: 1.75rem;
 }
 
 nav {
@@ -120,13 +121,13 @@ nav {
 nav a,
 .ghost-button,
 .primary-button {
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 42px;
-  padding: 0 16px;
+  min-height: 38px;
+  padding: 0 14px;
   font-weight: 700;
   transition:
     transform 140ms var(--ease),
@@ -138,7 +139,7 @@ nav a,
 .ghost-button {
   color: var(--text-strong);
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.32);
 }
 
 .primary-button {
@@ -195,9 +196,9 @@ p {
 h1 {
   margin-bottom: 20px;
   color: var(--text-strong);
-  font-size: clamp(3rem, 7vw, 6.25rem);
-  line-height: 0.92;
-  letter-spacing: -0.04em;
+  font-size: clamp(3rem, 6vw, 5.8rem);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
 }
 
 h2 {
@@ -414,51 +415,90 @@ h3 {
 }
 
 .brand-hero {
-  min-height: calc(100vh - 82px);
+  min-height: min(640px, calc(100vh - 76px));
   display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
   align-items: center;
-  padding: 44px 0 88px;
+  gap: 58px;
+  padding: 48px 0 86px;
   position: relative;
 }
 
 .brand-hero-inner {
-  max-width: 980px;
+  max-width: 760px;
   position: relative;
   z-index: 1;
 }
 
 .brand-hero h1 {
-  max-width: 950px;
-  font-size: clamp(4rem, 12vw, 10.5rem);
-  line-height: 0.82;
-  letter-spacing: -0.075em;
+  max-width: 760px;
+  font-size: clamp(3.25rem, 7vw, 6.6rem);
+  line-height: 0.94;
+  letter-spacing: -0.045em;
 }
 
 .brand-hero p:not(.eyebrow) {
-  max-width: 680px;
+  max-width: 610px;
   color: var(--muted);
-  font-size: clamp(1.1rem, 2vw, 1.36rem);
+  font-size: clamp(1.05rem, 1.6vw, 1.22rem);
 }
 
-.brand-monogram {
-  position: absolute;
-  right: 0;
-  bottom: 42px;
-  width: min(440px, 48vw);
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
+.brand-note {
+  align-self: end;
+  min-width: 0;
+  padding: 28px;
   border: 1px solid var(--line);
-  border-radius: 50%;
+  border-radius: var(--radius-lg);
   background:
-    radial-gradient(circle at 36% 30%, rgba(255, 255, 255, 0.72), transparent 34%),
-    rgba(239, 228, 211, 0.56);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.58), transparent),
+    var(--panel-strong);
   box-shadow: var(--shadow);
-  opacity: 0.9;
 }
 
-.brand-monogram .wordmark {
-  font-size: clamp(3.5rem, 9vw, 7rem);
+.brand-note .wordmark {
+  display: block;
+  margin-bottom: 76px;
+  font-size: 3.2rem;
+}
+
+.brand-note p {
+  margin-bottom: 26px;
+  color: var(--text-strong);
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+
+.brand-note dl {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.brand-note div {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  min-width: 0;
+}
+
+.brand-note dt {
+  color: var(--muted);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  flex: 0 0 auto;
+}
+
+.brand-note dd {
+  margin: 0;
+  color: var(--text-strong);
+  font-weight: 750;
+  text-align: right;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .studio-panel,
@@ -467,7 +507,7 @@ h3 {
   grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.1fr);
   gap: 38px;
   align-items: end;
-  padding: 42px;
+  padding: 34px;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: var(--panel);
@@ -484,13 +524,13 @@ h3 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
-  padding: 86px 0;
+  padding: 56px 0;
 }
 
 .standards-grid article,
 .promise-grid article {
-  min-height: 260px;
-  padding: 28px;
+  min-height: 230px;
+  padding: 24px;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.48);
@@ -500,7 +540,7 @@ h3 {
 .standards-grid span,
 .flow-rail span {
   display: inline-flex;
-  margin-bottom: 54px;
+  margin-bottom: 38px;
   color: var(--accent);
   font-family: "Courier New", Courier, monospace;
 }
@@ -511,7 +551,7 @@ h3 {
 }
 
 .contact-band {
-  margin-bottom: 90px;
+  margin-bottom: 72px;
   align-items: center;
 }
 
@@ -523,7 +563,7 @@ h3 {
 }
 
 .oi-hero {
-  min-height: calc(100vh - 82px);
+  min-height: min(760px, calc(100vh - 76px));
   display: grid;
   grid-template-columns: minmax(0, 1.04fr) minmax(380px, 0.96fr);
   align-items: center;
@@ -532,7 +572,7 @@ h3 {
 }
 
 .oi-copy h1 {
-  font-size: clamp(3.35rem, 7.6vw, 7.2rem);
+  font-size: clamp(3rem, 6.6vw, 6rem);
 }
 
 .oi-copy p:not(.eyebrow) {
@@ -730,11 +770,13 @@ h3 {
 
   nav {
     justify-content: flex-start;
+    width: 100%;
   }
 
   .hero,
   .split,
   .oi-hero,
+  .brand-hero,
   .studio-panel,
   .contact-band,
   .package-section {
@@ -757,11 +799,18 @@ h3 {
     grid-column: auto;
   }
 
-  .brand-monogram {
-    position: relative;
-    inset: auto;
-    width: min(320px, 80vw);
-    margin-top: 34px;
+  .brand-hero {
+    min-height: auto;
+    gap: 28px;
+    padding: 42px 0 64px;
+  }
+
+  .brand-note {
+    align-self: auto;
+  }
+
+  .brand-note .wordmark {
+    margin-bottom: 34px;
   }
 }
 
@@ -769,11 +818,44 @@ h3 {
   .site-header,
   .site-footer,
   main {
-    width: min(100% - 28px, 1160px);
+    width: calc(100% - 48px);
   }
 
   h1 {
-    font-size: clamp(2.5rem, 16vw, 4rem);
+    font-size: 2.15rem;
+  }
+
+  .brand-hero h1,
+  .oi-copy h1 {
+    max-width: 9.5em;
+    font-size: 2.42rem;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+  }
+
+  .brand-hero-inner,
+  .oi-copy,
+  .brand-note {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .brand-hero p:not(.eyebrow),
+  .oi-copy p:not(.eyebrow),
+  .brand-note p {
+    max-width: 100%;
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .brand-note div {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .brand-note dd {
+    text-align: left;
   }
 
   .reader-spread {
