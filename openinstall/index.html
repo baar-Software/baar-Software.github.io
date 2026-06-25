@@ -22,12 +22,12 @@
   <body class="openinstall-page">
     <header class="site-header">
       <a class="brand" href="../" aria-label="Baar-Verlag Software Team home">
-        <img src="../assets/baar-icon.png" alt="" />
         <span class="wordmark">baar</span>
       </a>
       <nav aria-label="Primary navigation">
         <a href="../">Team</a>
         <a href="#flow">Flow</a>
+        <a href="#details">Details</a>
         <a href="#package">Package</a>
         <a href="#links">Links</a>
       </nav>
@@ -43,6 +43,11 @@
             resolve the package, verify the publisher and file hashes, show the
             user what will happen, and install only after explicit consent.
           </p>
+          <div class="metric-strip" aria-label="OpenInstall project facts">
+            <span>Windows 10/11</span>
+            <span>Native .oip packages</span>
+            <span>AGPL-3.0</span>
+          </div>
           <div class="hero-actions">
             <a class="primary-button" href="https://github.com/baar-Software/OpenInstall">View source</a>
             <a class="ghost-button" href="https://github.com/baar-Software/OpenInstall/blob/main/DOWNLOAD.md">Downloads</a>
@@ -72,6 +77,11 @@
           <div class="preview-source">
             <span>Source</span>
             <code>openinstall://install/com.example.app</code>
+          </div>
+          <div class="preview-checks">
+            <span>Signature</span>
+            <span>SHA-256 files</span>
+            <span>Consent required</span>
           </div>
           <div class="preview-actions">
             <button type="button">Cancel</button>
@@ -109,6 +119,51 @@
         </div>
       </section>
 
+      <section id="details" class="detail-section">
+        <div class="section-heading">
+          <p class="eyebrow">Project details</p>
+          <h2>Built as a verifier and installer, not a wrapper for unknown setup programs.</h2>
+        </div>
+        <div class="detail-grid">
+          <article>
+            <span>Install model</span>
+            <h3>Per-user by default</h3>
+            <p>
+              Normal apps install without UAC under
+              <code>%LOCALAPPDATA%\OpenInstall\Apps\&lt;bundle-id&gt;\&lt;version&gt;\</code>.
+              OpenInstall creates Start Menu shortcuts and HKCU uninstall metadata.
+            </p>
+          </article>
+          <article>
+            <span>Trust model</span>
+            <h3>Signatures, hashes, and publisher pins</h3>
+            <p>
+              Packages declare every installed file and SHA-256 hash. The publisher
+              signature, app identity, file list, permissions, and publisher-key pin
+              are checked before the consent dialog appears.
+            </p>
+          </article>
+          <article>
+            <span>Distribution</span>
+            <h3>Static HTTPS repositories</h3>
+            <p>
+              A repository is a simple HTTPS directory with a <code>repo.json</code>
+              catalog. Repos are discovery metadata only; every selected package is
+              still verified independently.
+            </p>
+          </article>
+          <article>
+            <span>Safety boundary</span>
+            <h3>No installer roulette</h3>
+            <p>
+              v1 blocks arbitrary setup executables, scripts, services, drivers,
+              registry payloads, shell extensions, and silent installs as the install
+              mechanism.
+            </p>
+          </article>
+        </div>
+      </section>
+
       <section id="package" class="package-section">
         <div class="package-copy">
           <p class="eyebrow">Native .oip</p>
@@ -130,6 +185,31 @@
 `-- provenance.json</code></pre>
       </section>
 
+      <section class="architecture-section">
+        <div>
+          <p class="eyebrow">Architecture</p>
+          <h2>Small parts with clear responsibilities.</h2>
+        </div>
+        <div class="architecture-list">
+          <article>
+            <strong>oip-core</strong>
+            <span>Pure manifest, signature, hash, and trust evaluation logic.</span>
+          </article>
+          <article>
+            <strong>oip-client</strong>
+            <span>Repository resolution, download, validation, blocklists, and install orchestration.</span>
+          </article>
+          <article>
+            <strong>oip-pack</strong>
+            <span>Native package authoring, publisher key generation, and manifest signing.</span>
+          </article>
+          <article>
+            <strong>Tauri + Svelte</strong>
+            <span>Windows shell, deep links, MSI packaging, launchpad, store, and consent UI.</span>
+          </article>
+        </div>
+      </section>
+
       <section class="promise-grid">
         <article>
           <h3>No silent path</h3>
@@ -143,6 +223,18 @@
           <h3>No OS bypass claim</h3>
           <p>OpenInstall does not disable Windows security controls or AV policy.</p>
         </article>
+      </section>
+
+      <section class="status-panel">
+        <div>
+          <p class="eyebrow">Status</p>
+          <h2>Pre-1.0, open source, and intentionally conservative.</h2>
+        </div>
+        <p>
+          The native package direction and security model are the core design.
+          Package-authoring tools, repository tooling, and Windows signing are still
+          evolving. Public releases are preview builds until code signing is enabled.
+        </p>
       </section>
 
       <section id="links" class="section split">
